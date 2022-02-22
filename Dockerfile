@@ -1,5 +1,6 @@
-# Build app container
+# syntax=docker/dockerfile:1
 FROM node
-WORKDIR src
-COPY src .
+WORKDIR app
+COPY . .
 EXPOSE 3000
+CMD ["node", "src/index.js"]

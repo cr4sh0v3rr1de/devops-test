@@ -1,0 +1,19 @@
+version: "2"
+services:
+  app:
+    build: src
+    command: sh -c "npm ci && npm start"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    image: "postgres"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_DB=postgresdb
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust 
+    ports: 
+      - "5432:5432"
+
